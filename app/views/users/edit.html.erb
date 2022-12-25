@@ -1,1 +1,39 @@
-<h1>Usersのeditページ</h1>
+<main>
+  <% if @user.errors.any? %>
+  <%= @user.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <p id = "notice"></p>
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h2>User info</h2>
+        <%= form_with model: @user do |f| %>
+
+        <div class= "from-group">
+          <label for="inputName">Name</label><br/>
+          <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:@user.name%>
+        </div>
+
+        <div class= "from-group">
+          <label for="inputImage">image</label><br/>
+          <%= f.file_field :profile_image, placeholder:"inputImage", accept: "image/*" %>
+
+        <div class= "from-group">
+          <label for="inputIntroduction">Introduction</label><br/>
+          <%= f.text_field :introduction, autofocus: true, id:"inputIntroduction", placeholder:@user.introduction%>
+        </div>
+
+        <div class= "from-group">
+          <%= f.submit "Update user", class: "btn btn-secondary"%>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

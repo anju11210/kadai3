@@ -5,7 +5,5 @@ Rails.application.routes.draw do
 
   resources :books
 
-  resources :post_images, only: [:new, :create, :index, :show]
-
-  resources :users, only: [:index, :show, :edit]
+  resources :users, only: [:index, :show, :edit, :update]
 end
