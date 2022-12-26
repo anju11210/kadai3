@@ -3,7 +3,7 @@
     <div class = "container px-5 px-sm-0">
       <div class = "row">
 
-      <%= render 'layouts/book' %>
+      <%= render 'layouts/book', user:@user %>
 
       <div class = "col-md-8 offset-md-1">
         <h2>Books</h2>
@@ -21,7 +21,7 @@
             <tr>
               <td>
                 <%= link_to user_path(@user.id) do %>
-                  <%= image_tag @user.get_profile_image(100,100) %>
+                  <%= image_tag @user.get_profile_image(80,80) %>
                 <% end %>
               </td>
               <td>
